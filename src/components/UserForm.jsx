@@ -68,47 +68,50 @@ const UserForm = (props) => {
 
     
     return(
-        <div>
+        <div className='container mt-5'>
+            <div className='row'>
+                <div className='col'></div>
+                <div className='col bg-light'>
         <form onSubmit={ createUser }>
-            <div>
-                <label>First Name: </label> 
-                <input type="text"  onChange={ handleFirstName } value={firstName} />
-            </div>
+            <div className='mb-3' >
+                <label className='form-label'>First Name: </label> 
+                <input className='form-control' type="text"  onChange={ handleFirstName } value={firstName} />
             {
                 firstNameError ?
                 <p>{firstNameError}</p> :
                 ""
             }
-            <div>
-                <label>Last Name: </label> 
-                <input type="text" onChange={ handleLastName } value={lastName} />
+            </div>     
+            <div className='mb-3'>
+                <label className='form-label' >Last Name: </label> 
+                <input className='form-control' type="text" onChange={ handleLastName } value={lastName} />
                 {
                     lastNameError ?
                     <p>{lastNameError}</p> :
                     ""
                 }
             </div>
-            <div>
-                <label>Email Address: </label> 
-                <input type="text" onChange={ handleEmail }value={email} />
+            <div className='mb-3'>
+                <label className='form-label'>Email Address: </label> 
+                <input className='form-control' type="text" onChange={ handleEmail }value={email} />
                 {
                     emailError ?
                     <p>{emailError}</p> :
                     ""
                 }
             </div>
-            <div>
-                <label>Password: </label>
-                <input type="password" onChange={ handlePassword }value={password} />
+            <div className='mb-3'>
+                <label className='form-label'>Password: </label>
+                <input className='form-control' type="password" onChange={ handlePassword }value={password} />
                 {
                     passwordError ?
                     <p>{passwordError}</p> :
                     ""
                 }
             </div>
-            <div>
-                <label>Confirm Password: </label>
-                <input type="password" onChange={ handleConfirm }value={confirmPassword} />
+            <div className='mb-3'>
+                <label className='form-label'>Confirm Password: </label>
+                <input className='form-control' type="password" onChange={ handleConfirm }value={confirmPassword} />
                 {
                     confirmError ?
                     <p>{confirmError}</p> :
@@ -116,9 +119,12 @@ const UserForm = (props) => {
                 }
             </div>
         </form>
+        </div>
+        <div className='col'></div>
+        </div>
         {/* USERINFO IS ANOTHER COMPONENT, YOU CAN ADD COMPONENTS INSIDE OTHER COMPONENTS AND WILL SHOW UP IN APP.JS */}
-        <div>
-        <UserInfo 
+        <div className='container'>
+         <UserInfo 
         firstName = {firstName}
         lastName = {lastName}
         email = {email}
