@@ -2,9 +2,17 @@ import React from 'react'
 import { useState } from 'react'
 
 const BoxGenerator = (props) => {
-    const [color,setColor] = useState("");
+    const [boxColor,setBoxColor] = useState("");
+    const [boxes, setBoxes] = useState([]);
 
 
+
+    
+const handleSubmit = (e) => {
+  e.preventDefault();
+  props.newBox(boxColor);
+  setBoxColor("");
+}
 
   return (
     <div>
@@ -12,11 +20,11 @@ const BoxGenerator = (props) => {
             <div className='row'>
                 <div className='col'></div>
                 <div className='col bg-light'>
-        <form onSubmit={ color }>
+        <form onSubmit={ handleSubmit }>
             <div className='mb-3' >
                 <label className='form-label'>Color: </label> 
-                <input className='form-control' type="text" onChange={color} value={color} />
-                <input className='btn btn-primary mt-3' type="submit"/>
+                <input className='form-control' type="text" onChange={ (e) => setBoxColor(e.target.value)} value={boxColor} />
+                <input className='btn btn-primary mt-3' type="submit" value='Add' />
             </div>     
         </form>
         </div>
