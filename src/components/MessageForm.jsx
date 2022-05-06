@@ -6,7 +6,7 @@ const MessageForm = (props) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.newMesage(msg);
+        props.OnNewMesage(msg);
     };
 
     return (
