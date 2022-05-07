@@ -1,5 +1,5 @@
 import UserForm from './components/UserForm';
-import BoxGenerator from './components/BoxGenerator';
+import BoxForm from './components/BoxForm';
 import MessageForm from './components/MessageForm';
 import MessageDisplay from './MessageDisplay';
 import React, { useState } from 'react';
@@ -9,21 +9,26 @@ import BoxDisplay from './components/BoxDisplay';
 
 
 function App() {
-  const [currentMsg, setCurrentMsg] = useState("There are no messages")
+  // const [currentMsg, setCurrentMsg] = useState("There are no messages")
 
-  const [currentBox, setCurrentBox] = useState('There is no boxes')
+  const [boxes, setCurrentBoxes] = useState([])
 
+  const handleNewBox = (newBox) => {
+    setCurrentBoxes(newBox)
+    
+  }
+  
 
 
   return (
     <div>
       <UserForm />
 
-      <BoxGenerator newBox = {setCurrentBox}/>
-      <BoxDisplay box = {currentBox}/>
-
+      <BoxForm onNewBox = {handleNewBox}/>
+      <BoxDisplay box = {boxes}/>
+{/* 
       <MessageForm OnNewMesage = {setCurrentMsg}/>
-      <MessageDisplay message = {currentMsg}/>
+      <MessageDisplay message = {currentMsg}/> */}
     </div>
   );
 }

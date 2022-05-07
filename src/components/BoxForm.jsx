@@ -2,15 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 
 const BoxGenerator = (props) => {
-    const [boxColor,setBoxColor] = useState("");
-    const [boxes, setBoxes] = useState([]);
-
-
-
+    const [boxColor, setBoxColor] = useState("");
     
 const handleSubmit = (e) => {
   e.preventDefault();
-  props.newBox(boxColor);
+  props.onNewBox(boxColor);
   setBoxColor("");
 }
 
